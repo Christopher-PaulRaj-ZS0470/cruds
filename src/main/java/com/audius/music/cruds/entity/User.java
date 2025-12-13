@@ -22,7 +22,7 @@ public class User {
     @Column(name = "account_name")
     private String accountName;
     @Column(name = "phone_number")
-    private String phoneNumber;
+    private Long phoneNumber;
     @Column(name = "dob")
     private LocalDate dob;
 }

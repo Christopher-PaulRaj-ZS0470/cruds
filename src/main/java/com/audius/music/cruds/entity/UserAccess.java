@@ -19,5 +19,5 @@ public class UserAccess {
     @Column(name = "user_id")
     private Long userId;
     @Column(name = "phone_number")
-    private String phoneNumber;
+    private Long phoneNumber;
 }

@@ -15,11 +15,11 @@ public class Account {
     @Column(name = "account_name")
     private String accountName;
     @Column(name = "created_by")
-    private Timestamp createdBy;
+    private Long createdBy;
     @Column(name = "created_on")
     private Timestamp createdOn;
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
     @Column(name = "phone_number")
-    private LocalDate phoneNumber;
+    private Long phoneNumber;
 }
