@@ -1,4 +1,4 @@
-package com.audius.music.openapi;
+package com.audius.music;
 
 import org.springframework.context.annotation.Configuration;
 
