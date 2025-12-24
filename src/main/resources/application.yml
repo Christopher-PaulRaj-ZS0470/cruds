@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: music-player-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5466/audius
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  
+server:
+  port: 8012
+
+logging:
+  level:
+    com.musicplayer: DEBUG
+    
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000 # 24 hours in milliseconds
