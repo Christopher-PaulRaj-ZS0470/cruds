@@ -1,4 +1,4 @@
-package com.musicplayer.config;
+package com.musicplayer.security;
 
 import com.musicplayer.auth.entity.User;
 import lombok.RequiredArgsConstructor;

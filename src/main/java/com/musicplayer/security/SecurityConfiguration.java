@@ -1,4 +1,4 @@
-package com.musicplayer.config;
+package com.musicplayer.security;
 
 import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +28,8 @@ public class SecurityConfiguration {
                         .requestMatchers("/swagger-ui/**",
                                 "/v3/api-docs/**",
                                 "/v3/api-docs.yaml",
-                                "/swagger-ui.html","/api/auth/**").permitAll()
+                                "/swagger-ui.html","/api/auth/**",
+                                "/api/auth/**").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)

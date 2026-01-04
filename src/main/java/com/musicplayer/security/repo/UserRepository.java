@@ -1,4 +1,4 @@
-package com.musicplayer.config.repo;
+package com.musicplayer.security.repo;
 
 import com.musicplayer.auth.entity.User;
 import org.springframework.data.repository.CrudRepository;

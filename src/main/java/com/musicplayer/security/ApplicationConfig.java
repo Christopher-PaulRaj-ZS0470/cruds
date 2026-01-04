@@ -1,6 +1,6 @@
-package com.musicplayer.config;
+package com.musicplayer.security;
 
-import com.musicplayer.config.repo.UserRepository;
+import com.musicplayer.security.repo.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

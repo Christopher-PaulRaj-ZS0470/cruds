@@ -1,15 +1,13 @@
 package com.musicplayer.modules.auth.controller;
 
+import com.musicplayer.auth.service.ApiCallerService;
 import com.musicplayer.modules.auth.dto.AuthenticationRequest;
 import com.musicplayer.modules.auth.dto.AuthenticationResponse;
 import com.musicplayer.modules.auth.dto.RegisterRequest;
 import com.musicplayer.modules.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -17,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     private final AuthService service;
+    private final ApiCallerService apiCallerService;
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
@@ -29,4 +28,18 @@ public class AuthController {
             @RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(service.authenticate(request));
     }
+
+    @PostMapping("/authenticateAndCallConfig")
+    public ResponseEntity<String> authenticateAndCallConfig(@RequestBody AuthenticationRequest request,
+                                                            @RequestParam String variable) {
+        // 1. Authenticate and get JWT
+        AuthenticationResponse authResponse = service.authenticate(request);
+        String jwtToken = authResponse.getAccessToken();
+
+        // 2. Call config API with JWT
+        String configResponse = apiCallerService.callConfigApiWithJwt(jwtToken, variable);
+
+        return ResponseEntity.ok(configResponse);
+    }
+
 }

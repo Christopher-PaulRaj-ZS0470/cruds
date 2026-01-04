@@ -2,9 +2,8 @@ package com.musicplayer.modules.auth.service;
 
 import com.musicplayer.auth.entity.User;
 import com.musicplayer.auth.service.JwtService;
-import com.musicplayer.config.repo.UserRepository;
+import com.musicplayer.security.repo.UserRepository;
 
-import com.musicplayer.modules.auth.Role;
 import com.musicplayer.modules.auth.dto.AuthenticationRequest;
 import com.musicplayer.modules.auth.dto.AuthenticationResponse;
 import com.musicplayer.modules.auth.dto.RegisterRequest;

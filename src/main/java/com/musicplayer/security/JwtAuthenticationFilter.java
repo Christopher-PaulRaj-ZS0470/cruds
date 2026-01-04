@@ -1,4 +1,4 @@
-package com.musicplayer.config;
+package com.musicplayer.security;
 
 import com.musicplayer.auth.service.JwtService;
 import jakarta.servlet.FilterChain;
@@ -51,5 +51,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
         }
         filterChain.doFilter(request, response);
+    }
+
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getServletPath();
+        return path.startsWith("/api/auth");
     }
 }
